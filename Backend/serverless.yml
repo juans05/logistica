@@ -1,0 +1,64 @@
+service: Laboratorio
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-west-2
+  environment:
+    DYNAMODB_TABLE: ProductosNew  
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+      Resource:
+        - arn:aws:dynamodb:us-west-2:654654329137:table/ProductosNew        
+functions:
+  createProduct:
+    handler: FuncionesLambda/CrearProducto.create
+    events:
+      - http:
+          path: products
+          method: post
+          cors: true
+  ListarProduct:
+    handler: FuncionesLambda/ListarProductos.list
+    events:
+      - http:
+          path: products/listar
+          method: get
+          cors: true
+  updateProduct:
+    handler: FuncionesLambda/ActualizarProducto.update
+    events:
+      - http:
+          path: products/{id}
+          method: put
+          cors: true
+  deleteProduct:
+    handler: FuncionesLambda/EliminarProducto.delete
+    events:
+      - http:
+          path: products/{id}
+          method: delete
+          cors: true
+  getProduct:
+    handler: FuncionesLambda/ObtenerProductos.get
+    events:
+      - http:
+          path: products/{id}
+          method: get
+          cors: true
+resources:
+  Resources:
+    ProductosNew:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ProductosNew
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
