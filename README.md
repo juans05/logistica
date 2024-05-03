@@ -28,6 +28,7 @@ Antes de proceder con la configuración y despliegue del proyecto, asegúrate de
 
 - **cd backend**.
 - **npm install**.
+- **npm install -g serverless**
 
 Ajusta las variables de entorno y otros parámetros necesarios en tu archivo de configuración, usualmente ubicado en  backend/src/config/aws.js
 
