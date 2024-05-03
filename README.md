@@ -30,13 +30,26 @@ Antes de proceder con la configuración y despliegue del proyecto, asegúrate de
 - **npm install**.
 - **npm install -g serverless**
 
+### Configuracion AWS windows
+Instalar aws Cli y agragar en el PATH.
+Reiniciar su pc
+Una vez instalado, puedes configurarlo ejecutando el siguiente comando en tu terminal:
+ - aws configure
+   
+Este comando te pedirá que ingreses tu AWS Access Key ID, Secret Access Key, región y formato de salida. Estas credenciales te las proporciona AWS cuando creas un usuario IAM en tu cuenta de AWS.
+
+Usa Serverless Framework para desplegar el backend en AWS. Asegúrate de estar en la carpeta del backend y ejecuta:
+- serverless deploy --verbose
+
 Ajusta las variables de entorno y otros parámetros necesarios en tu archivo de configuración, usualmente ubicado en  backend/src/config/aws.js
 
 - const AWS_REGION = 'us-west-2';
 - const API_BASE_URL = 'https://<api-id>.execute-api.<region>.amazonaws.com/dev';
 
-Usa Serverless Framework para desplegar el backend en AWS. Asegúrate de estar en la carpeta del backend y ejecuta:
-- serverless deploy --verbose
+dspues de hacer toda la configuracion necesaria
+ejecturar ese comando **npm test**
+
+comenzara a ejectar todos los test.
 
 Luego levantar el servicio backend con ***npm start**
 
