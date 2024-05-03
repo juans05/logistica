@@ -47,9 +47,9 @@ Ajusta las variables de entorno y otros parámetros necesarios en tu archivo de 
 - const API_BASE_URL = 'https://<api-id>.execute-api.<region>.amazonaws.com/dev';
 
 dspues de hacer toda la configuracion necesaria
-ejecturar ese comando **npm test**
+ejecutar este comando **npm test**
 
-comenzara a ejectar todos los test.
+comenzara a ejecutar todos los test.
 
 Luego levantar el servicio backend con ***npm start**
 
